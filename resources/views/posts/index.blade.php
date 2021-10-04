@@ -37,6 +37,15 @@
                             {{$post->body}}
                         </p>
 
+                            @can('delete', $post)
+                                <form action="{{route('posts.destroy', $post)}}" method="post" class="mr-1">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-blue-500">Delete Post</button>
+                                </form>
+                            @endcan
+
+
                         <div class="flex items-center">
                             @auth
                                 @if(!$post->likedby(auth()->user()))
