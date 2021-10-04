@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController2;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController2;
 use App\Http\Controllers\Auth\LogoutController2;
+use App\Http\Controllers\PostLikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,9 @@ Route::post('/register2', [RegisterController2::class, 'store'])->name('storeReg
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
 
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
+Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes');
 
 
-Auth::routes();
 
 
