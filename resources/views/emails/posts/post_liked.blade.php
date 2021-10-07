@@ -1,11 +1,11 @@
 @component('mail::message')
-# Introduction
+# Seu post foi gostado
 
-The body of your message.
+{{$liker->name}} gostou de um dos seus posts
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+{{--@component('mail::button', ['url' => route('posts.show', $post)])--}}
+{{--    View post--}}
+{{--@endcomponent--}}
 
 Thanks,<br>
 {{ config('app.name') }}
