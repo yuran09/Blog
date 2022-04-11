@@ -18,6 +18,7 @@ pipeline{
         stage("deploy"){
             steps{
                 echo 'deploying application...'
+                php artisan serve --host=port:8082
             }
         }
     }
