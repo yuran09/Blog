@@ -6,6 +6,11 @@ pipeline{
         stage("build"){
             steps{
                 echo 'building application'
+                sh 'php --version'
+                sh 'composer install'
+                sh 'composer --version'
+                sh 'cp .env.example .env'
+                sh 'php artisan key:generate'
             }
         }
 
@@ -18,7 +23,6 @@ pipeline{
         stage("deploy"){
             steps{
                 echo 'deploying application...'
-                sh "php artisan serve --host=port:8082"
             }
         }
     }
