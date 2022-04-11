@@ -6,9 +6,6 @@ pipeline{
         stage("build"){
             steps{
                 echo 'building application'
-                sh 'php --version'
-                sh 'composer install'
-                sh 'composer --version'
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
             }
